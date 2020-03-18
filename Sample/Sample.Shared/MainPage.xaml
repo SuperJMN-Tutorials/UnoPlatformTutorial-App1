@@ -11,8 +11,18 @@
         <shared:ViewModel />
     </Page.DataContext>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<TextBox Header="First name" Text="{Binding FirstName}" />
-        <TextBox Header="Last name" Text="{Binding LastName}" />
-    </StackPanel>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border CornerRadius="10" Background="LightSkyBlue" BorderBrush="DodgerBlue" BorderThickness="1" Width="320" Height="180">
+            <Grid ColumnSpacing="-20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Source="contact.png" Margin="15" />
+                <StackPanel Grid.Column="1" Margin="20">
+                    <TextBox Header="First name" Text="{Binding FirstName}" />
+                    <TextBox Header="Last name" Text="{Binding LastName}" />
+                </StackPanel>
+            </Grid>
+        </Border></Grid>
 </Page>
