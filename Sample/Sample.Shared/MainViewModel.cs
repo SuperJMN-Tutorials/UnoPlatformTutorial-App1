@@ -25,7 +25,11 @@ namespace Sample.Shared
                     LastName = "Martin",
                 },
             };
+
+            NewContactViewModel = new NewContactViewModel(Contacts);
         }
+
+        public NewContactViewModel NewContactViewModel { get; set; }
 
         public ObservableCollection<ContactViewModel> Contacts { get; }
     }

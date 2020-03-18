@@ -11,13 +11,27 @@
         <shared:MainViewModel />
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView ItemsSource="{Binding Contacts}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <shared:Contact />
-                </DataTemplate>
-            </ListView.ItemTemplate>            
-        </ListView>
+    <Grid RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel DataContext="{Binding NewContactViewModel}" Margin="15" Orientation="Horizontal" Spacing="10">
+            <TextBlock VerticalAlignment="Center">New contact</TextBlock>
+            <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="Add" Command="{Binding Add}" />
+        </StackPanel>
+        <Grid Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ListView ItemsSource="{Binding Contacts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <UserControl>
+                            <shared:Contact />
+                        </UserControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
