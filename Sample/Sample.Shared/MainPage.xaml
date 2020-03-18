@@ -12,6 +12,10 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <shared:Contact />
+        <ListView>
+            <shared:Contact></shared:Contact>
+            <shared:Contact></shared:Contact>
+            <shared:Contact></shared:Contact>
+        </ListView>
     </Grid>
 </Page>
