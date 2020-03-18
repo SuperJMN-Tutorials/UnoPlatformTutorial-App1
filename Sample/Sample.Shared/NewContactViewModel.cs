@@ -8,13 +8,16 @@ namespace Sample.Shared
 {
     public class NewContactViewModel : ReactiveObject
     {
-        public NewContactViewModel(ObservableCollection<ContactViewModel> contacts)
+        private readonly ObservableCollection<ContactViewModel> contacts;
+
+        public NewContactViewModel(ObservableCollection<ContactViewModel> contacts, Action<ContactViewModel> deleteRequest)
         {
+            this.contacts = contacts;
             var isValid = this
-                .WhenAnyValue(model => model.FirstName, model => model.LastName, (fn, sn) => new[] { fn, sn }
+                .WhenAnyValue(model => model.FirstName, model => model.LastName, (fn, sn) => new[] {fn, sn}
                     .None(string.IsNullOrWhiteSpace));
 
-            Add = ReactiveCommand.Create(() => contacts.Add(new ContactViewModel
+            Add = ReactiveCommand.Create(() => contacts.Add(new ContactViewModel(deleteRequest)
             {
                 FirstName = FirstName,
                 LastName = LastName,
@@ -29,7 +32,7 @@ namespace Sample.Shared
             LastName = "";
         }
 
-        public ReactiveCommand<Unit, Unit> Add { get; }
+        public ReactiveCommand<Unit, Unit> Add { get; set; }
 
         private string firstName;
         private string lastName;

@@ -1,4 +1,6 @@
-﻿using ReactiveUI;
+﻿using System;
+using System.Reactive;
+using ReactiveUI;
 
 namespace Sample.Shared
 {
@@ -6,7 +8,14 @@ namespace Sample.Shared
     {
         private string firstName;
         private string lastName;
-        
+
+        public ContactViewModel(Action<ContactViewModel> deleteRequest)
+        {
+            DeleteCommand = ReactiveCommand.Create(() => deleteRequest(this));
+        }
+
+        public ReactiveCommand<Unit, Unit> DeleteCommand { get; }
+
         public string FirstName
         {
             get => firstName;

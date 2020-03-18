@@ -9,27 +9,29 @@ namespace Sample.Shared
         {
             Contacts = new ObservableCollection<ContactViewModel>()
             {
-                new ContactViewModel()
-                {
-                    FirstName= "Pablo",
-                    LastName = "Nieto",
-                },
-                new ContactViewModel()
-                {
-                    FirstName= "Rafa",
-                    LastName = "Nadal",
-                },
-                new ContactViewModel()
-                {
-                    FirstName= "Robert",
-                    LastName = "Martin",
-                },
+                CreateContact("Pablo", "Nieto"),
+                CreateContact("Rafa", "Nadal"),
+                CreateContact("Robert", "Martin"),
             };
 
-            NewContactViewModel = new NewContactViewModel(Contacts);
+            NewContactViewModel = new NewContactViewModel(Contacts, DeleteRequest);
         }
 
-        public NewContactViewModel NewContactViewModel { get; set; }
+        private ContactViewModel CreateContact(string firstName, string secondName)
+        {
+            return new ContactViewModel(DeleteRequest)
+            {
+                FirstName = firstName,
+                LastName = secondName,
+            };
+        }
+
+        private void DeleteRequest(ContactViewModel toDelete)
+        {
+            Contacts.Remove(toDelete);
+        }
+
+        public NewContactViewModel NewContactViewModel { get; }
 
         public ObservableCollection<ContactViewModel> Contacts { get; }
     }

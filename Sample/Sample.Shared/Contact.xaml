@@ -9,17 +9,23 @@
     d:DesignHeight="300"
     d:DesignWidth="400" d:DataContext="{d:DesignInstance shared:ContactViewModel}">
 
-    <Border CornerRadius="10" Background="LightSkyBlue" BorderBrush="DodgerBlue" BorderThickness="1" Width="320" Height="180">
-        <Grid ColumnSpacing="-20">
+    <Border CornerRadius="10" Background="LightSkyBlue" BorderBrush="DodgerBlue" BorderThickness="1" Width="320" Height="150">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80" />
                 <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Image Source="contact.png" Margin="15" />
-            <StackPanel Grid.Column="1" Margin="20">
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="0 0 10 10">
                 <TextBox Header="First name" Text="{Binding FirstName}" />
                 <TextBox Header="Last name" Text="{Binding LastName}" />
             </StackPanel>
+            <Button Command="{Binding DeleteCommand}" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10 15">
+                <Button.Content>
+                    <SymbolIcon Symbol="Delete"></SymbolIcon>
+                </Button.Content>
+            </Button>
         </Grid>
     </Border>
 </UserControl>
