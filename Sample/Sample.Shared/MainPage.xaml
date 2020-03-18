@@ -8,14 +8,16 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <shared:ContactViewModel />
+        <shared:MainViewModel />
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView>
-            <shared:Contact></shared:Contact>
-            <shared:Contact></shared:Contact>
-            <shared:Contact></shared:Contact>
+        <ListView ItemsSource="{Binding Contacts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <shared:Contact />
+                </DataTemplate>
+            </ListView.ItemTemplate>            
         </ListView>
     </Grid>
 </Page>

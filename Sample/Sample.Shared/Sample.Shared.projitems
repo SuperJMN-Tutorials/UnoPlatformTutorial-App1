@@ -25,6 +25,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ContactViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Contact.xaml">
