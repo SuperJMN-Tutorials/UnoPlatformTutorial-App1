@@ -1,5 +1,4 @@
 ﻿using ReactiveUI;
-using Uno.Extensions;
 
 namespace Sample.Shared
 {
