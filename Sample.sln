@@ -19,6 +19,7 @@ Global
 		Sample\Sample.Shared\Sample.Shared.projitems*{51205672-800a-4bcb-834a-8bef7e9b2c37}*SharedItemsImports = 4
 		Sample\Sample.Shared\Sample.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		Sample\Sample.Shared\Sample.Shared.projitems*{9a8caea2-33f7-4c44-8c23-40c74259e5b6}*SharedItemsImports = 4
+		Sample\Sample.Shared\Sample.Shared.projitems*{dcc68472-61c0-4b89-a4c8-28bbe649b1eb}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
